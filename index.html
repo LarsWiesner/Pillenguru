@@ -3,58 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ihr Chatbot</title>
+    <title>Chatbot - Pillenguru</title>
     <style>
         body, html {
-            margin: 0;
             height: 100%;
-            font-family: Arial, sans-serif;
-        }
-        header {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
-            padding: 10px 20px;
-            text-align: left;
-        }
-        .logo {
-            height: 50px; /* Sie können die Größe anpassen, wie Sie möchten */
-        }
-        .chat-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: calc(100% - 60px); /* Höhe abzüglich des Kopfbereichs */
-            padding: 0 20px;
+        }
+        .chat-container {
+            width: 350px;
+            height: 600px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #fff;
+        }
+        header {
+            background-color: #4a69bd;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+        header img {
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 8px;
         }
         .chatbox {
-            width: 60%;
-            height: 80%;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        .chatbox-inner {
-            height: 100%;
             width: 100%;
-            overflow: auto;
+            height: calc(100% - 50px);
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="Pillenguru(1).png" alt="Pillenguru Logo" class="logo"> <!-- Pfad zum Logo anpassen -->
-    </header>
     <div class="chat-container">
-        <div class="chatbox">
-            <div class="chatbox-inner">
-                <!-- Hier wird der Chatbot eingebettet -->
-            </div>
-        </div>
+        <header>
+            <img src="Pillenguru(1).png" alt="Pillenguru Logo"> <!-- Angepasster Pfad zum Logo -->
+            Pillenguru Chatbot
+        </header>
+        <div class="chatbox" id="bp-webchat"></div>
     </div>
-    <!-- Botpress Chatbot Skripte -->
+
     <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
-    <script src="https://mediafiles.botpress.cloud/0fddda55-253c-435b-9abe-788896a3bec2/webchat/config.js" defer></script>
+    <script>
+      window.botpressWebChat.init({
+        hostUrl: 'https://cdn.botpress.cloud/webchat/v0',
+        clientId: '0fddda55-253c-435b-9abe-788896a3bec2',
+        botId: '0fddda55-253c-435b-9abe-788896a3bec2',
+        messagingUrl: 'https://messaging.botpress.cloud',
+        enableReset: true, // Enable the reset button
+        themeColor: '#4a69bd', // Your theme color
+        showPoweredBy: false, // Hide 'Powered by Botpress' message
+        hideWidget: true, // Hide the default floating button
+        containerId: 'bp-webchat', // This must match the container div id
+        extraStylesheet: '' // You can add an extra stylesheet here if needed
+      });
+    </script>
 </body>
 </html>
