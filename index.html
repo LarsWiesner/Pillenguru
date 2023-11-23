@@ -4,61 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pillenguru Chatbot</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico"> <!-- Favicon -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         body, html {
             margin: 0;
+            padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
         .logo {
-            height: 200px; /* Größe des Logos in der Mitte */
-            margin-bottom: 20px; /* Abstand zwischen Logo und Chatbox */
+            width: auto; /* Breite des Logos wird automatisch angepasst */
+            height: 150px; /* Höhe des Logos ist dreimal so groß wie die ursprünglichen 50px */
         }
-        .chat-container {
-            width: 100%;
-            max-width: 350px; /* Maximalbreite der Chatbox */
-            height: 600px; /* Höhe der Chatbox */
-            box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .chatbox {
-            width: 100%;
-            height: 100%;
-        }
-        /* Hier können Sie weitere Anpassungen vornehmen */
+        /* Zusätzliche Stile können hier hinzugefügt werden */
     </style>
 </head>
 <body>
-    <img src="Pillenguru(1).png" alt="Pillenguru Logo" class="logo"> <!-- Pfad zum Logo -->
-    <div class="chat-container">
-        <div class="chatbox" id="bp-webchat"></div> <!-- Container für den Chatbot -->
-    </div>
+    <!-- Logo in der Mitte der Seite -->
+    <img src="Pillenguru(1).png" alt="Pillenguru Logo" class="logo">
     <!-- Botpress Chatbot Skripte -->
     <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
-    <script>
-      window.botpressWebChat.init({
-          "composerPlaceholder": "Chat with bot",
-          "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
-          "botId": "0fddda55-253c-435b-9abe-788896a3bec2",
-          "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
-          "messagingUrl": "https://messaging.botpress.cloud",
-          "clientId": "0fddda55-253c-435b-9abe-788896a3bec2",
-          "webhookId": "573ead5f-0f20-4db7-adae-890ac5ff9819",
-          "lazySocket": true,
-          "themeName": "prism",
-          "frontendVersion": "v0",
-          "useSessionStorage": true,
-          "enableConversationDeletion": true,
-          "theme": "prism",
-          "themeColor": "#2563eb"
-      });
-    </script>
+    <script src="https://mediafiles.botpress.cloud/0fddda55-253c-435b-9abe-788896a3bec2/webchat/config.js" defer></script>
 </body>
 </html>
