@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ihr Chatbot</title>
+    <title>Pillenguru Chatbot</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"> <!-- Favicon -->
     <style>
         body, html {
             margin: 0;
@@ -50,11 +51,12 @@
         <div class="chatbox" id="bp-webchat"></div> <!-- Container für den Chatbot -->
     </div>
     <!-- Botpress Chatbot Skripte -->
+    <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
     <script>
       window.botpressWebChat.init({
         hostUrl: 'https://cdn.botpress.cloud/webchat/v0',
         botId: '0fddda55-253c-435b-9abe-788896a3bec2',
-        // Andere Botpress-Optionen...
+        // Weitere Botpress-Optionen können hier eingefügt werden
       });
     </script>
 </body>
