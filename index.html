@@ -1,38 +1,47 @@
 <!DOCTYPE html>
-// Import the Botpress WebChat JavaScript file
-<script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
- 
-// Initialize the Botpress WebChat with the required parameters
-<script>
-    window.botpressWebChat.init({
-        // Replace <your-bot-id> and <your-client-id> with your actual bot and client IDs
-        "botId": "0fddda55-253c-435b-9abe-788896a3bec2",
-        "clientId": "0fddda55-253c-435b-9abe-788896a3bec2",
- 
-        // Set the URL for the Botpress WebChat JavaScript file and the messaging server
-        "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
-        "messagingUrl": "https://messaging.botpress.cloud",
- 
-        // Set the name of the bot that will be displayed in the WebChat interface
-        "botName": "Pillenguru",
- 
-        // Set the width of the WebChat container and layout to 100% (Full Screen)
-        "containerWidth": "100%25",
-        "layoutWidth": "100%25",
- 
-        // Hide the widget and disable animations
-        "hideWidget": true,
-        "disableAnimations": true,
-    });
- 
-    // Opens up the Chatbot by default
-    // This lets users start chatting with the Chatbot without needing to click any buttons or menus.
-    window.botpressWebChat.onEvent(
-        function () {
-            window.botpressWebChat.sendEvent({ type: "show" });
-        },
-        ["LIFECYCLE.LOADED"]
-    );
-</script>
- 
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stellen Sie sicher, dass der Viewport für mobile Geräte richtig gesetzt ist -->
+    <title>Botpress Chatbot</title>
+    <style>
+        /* CSS für mobile Optimierung */
+        @media screen and (max-width: 767px) {
+            /* Hier können Sie spezifische Stile für mobile Geräte definieren */
+            .bpw-layout {
+                width: 100% !important; /* Vollbreite auf mobilen Geräten */
+                height: 100% !important; /* Volle Höhe */
+                border-radius: 0;
+                position: fixed; /* Fixiert das Chatfenster auf dem Bildschirm */
+                bottom: 0;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botpress WebChat Script -->
+    <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+    <script>
+        window.botpressWebChat.init({
+            "botId": "0fddda55-253c-435b-9abe-788896a3bec2",
+            "clientId": "0fddda55-253c-435b-9abe-788896a3bec2",
+            "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
+            "messagingUrl": "https://messaging.botpress.cloud",
+            "botName": "Pillenguru",
+            "containerWidth": "100%", /* Vollbreite für den Container */
+            "layoutWidth": "100%", /* Vollbreite für das Layout */
+            "hideWidget": true,
+            "disableAnimations": true,
+        });
+
+        window.botpressWebChat.onEvent(
+            function () {
+                window.botpressWebChat.sendEvent({ type: "show" });
+            },
+            ["LIFECYCLE.LOADED"]
+        );
+    </script>
+</body>
 </html>
