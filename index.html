@@ -40,8 +40,28 @@
     </div>
     <!-- Logo in der Mitte der Seite -->
     <img src="Pillenguru(1).png" alt="Pillenguru Logo" class="logo">
-    <!-- Botpress Chatbot Skripte (aktualisiert) -->
+    <!-- Botpress Chatbot Skripte (neue Integration) -->
     <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
-    <script src="https://mediafiles.botpress.cloud/0fddda55-253c-435b-9abe-788896a3bec2/webchat/config.js" defer></script>
+    <script>
+      window.botpressWebChat.init({
+          "composerPlaceholder": "Chat with Pillenguru",
+          "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
+          "botId": "0fddda55-253c-435b-9abe-788896a3bec2",
+          "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
+          "messagingUrl": "https://messaging.botpress.cloud",
+          "clientId": "0fddda55-253c-435b-9abe-788896a3bec2",
+          "webhookId": "573ead5f-0f20-4db7-adae-890ac5ff9819",
+          "lazySocket": true,
+          "themeName": "prism",
+          "botName": "Pillenguru",
+          "avatarUrl": "https://raw.githubusercontent.com/LarsWiesner/Pillenguru/main/Pillenguru_Logo_ohneText.png",
+          "stylesheet": "https://webchat-styler-css.botpress.app/prod/79c6a380-8c86-4f3e-a3a8-864973d7e984/v58142/style.css",
+          "frontendVersion": "v0",
+          "useSessionStorage": true,
+          "enableConversationDeletion": true,
+          "theme": "prism",
+          "themeColor": "#2563eb"
+      });
+    </script>
 </body>
 </html>
