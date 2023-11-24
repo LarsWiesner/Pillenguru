@@ -1,67 +1,38 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pillenguru Chatbot</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <!-- Google Fonts Einbindung -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Open Sans', sans-serif; /* Moderne Schriftart */
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .beta-text {
-            margin-bottom: 20px; /* Angemessener Abstand zum Logo */
-            font-size: 20px;
-            color: #333;
-            font-weight: 300; /* Leichtes Schriftgewicht für Modernität */
-        }
-        .logo {
-            width: auto;
-            height: 500px;
-        }
-        /* Zusätzliche Stile können hier hinzugefügt werden */
-    </style>
-</head>
-<body>
-    <!-- Text oberhalb des Logos -->
-    <div class="beta-text">
-        Beta version: Only for testing purposes
-    </div>
-    <!-- Logo in der Mitte der Seite -->
-    <img src="Pillenguru(1).png" alt="Pillenguru Logo" class="logo">
-    <!-- Botpress Chatbot Integration -->
-    <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
-    <script>
-      window.botpressWebChat.init({
-          "composerPlaceholder": "Chat with Pillenguru",
-          "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
-          "botId": "0fddda55-253c-435b-9abe-788896a3bec2",
-          "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
-          "messagingUrl": "https://messaging.botpress.cloud",
-          "clientId": "0fddda55-253c-435b-9abe-788896a3bec2",
-          "webhookId": "573ead5f-0f20-4db7-adae-890ac5ff9819",
-          "lazySocket": true,
-          "themeName": "prism",
-          "botName": "Pillenguru",
-          "avatarUrl": "https://raw.githubusercontent.com/LarsWiesner/Pillenguru/main/Pillenguru_Logo_ohneText.png",
-          "stylesheet": "https://webchat-styler-css.botpress.app/prod/code/79c6a380-8c86-4f3e-a3a8-864973d7e984/v75322/style.css",
-          "frontendVersion": "v0",
-          "useSessionStorage": true,
-          "enableConversationDeletion": true,
-          "theme": "prism",
-          "themeColor": "#2563eb"
-      });
-    </script>
-</body>
+// Import the Botpress WebChat JavaScript file
+<script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+ 
+// Initialize the Botpress WebChat with the required parameters
+<script>
+    window.botpressWebChat.init({
+        // Replace <your-bot-id> and <your-client-id> with your actual bot and client IDs
+        "botId": "0fddda55-253c-435b-9abe-788896a3bec2",
+        "clientId": "0fddda55-253c-435b-9abe-788896a3bec2",
+ 
+        // Set the URL for the Botpress WebChat JavaScript file and the messaging server
+        "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
+        "messagingUrl": "https://messaging.botpress.cloud",
+ 
+        // Set the name of the bot that will be displayed in the WebChat interface
+        "botName": "Pillenguru",
+ 
+        // Set the width of the WebChat container and layout to 100% (Full Screen)
+        "containerWidth": "100%25",
+        "layoutWidth": "100%25",
+ 
+        // Hide the widget and disable animations
+        "hideWidget": true,
+        "disableAnimations": true,
+    });
+ 
+    // Opens up the Chatbot by default
+    // This lets users start chatting with the Chatbot without needing to click any buttons or menus.
+    window.botpressWebChat.onEvent(
+        function () {
+            window.botpressWebChat.sendEvent({ type: "show" });
+        },
+        ["LIFECYCLE.LOADED"]
+    );
+</script>
+ 
 </html>
