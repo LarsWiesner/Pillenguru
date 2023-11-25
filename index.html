@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Stellen Sie sicher, dass der Viewport für mobile Geräte richtig gesetzt ist -->
     <title>Botpress Chatbot</title>
     <style>
         /* CSS für mobile Optimierung */
         @media screen and (max-width: 767px) {
-            /* Hier können Sie spezifische Stile für mobile Geräte definieren */
-            .bpw-layout {
+            /* Spezifische Stile für mobile Geräte */
+            .bp-widget .bpw-chat-container {
                 width: 100% !important; /* Vollbreite auf mobilen Geräten */
                 height: 100% !important; /* Volle Höhe */
                 border-radius: 0;
@@ -21,8 +20,10 @@
     </style>
 </head>
 <body>
-    <!-- Botpress WebChat Script -->
+    <!-- Import the Botpress WebChat JavaScript file -->
     <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+    
+    <!-- Initialize the Botpress WebChat with the required parameters -->
     <script>
         window.botpressWebChat.init({
             "botId": "0fddda55-253c-435b-9abe-788896a3bec2",
@@ -30,8 +31,8 @@
             "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
             "messagingUrl": "https://messaging.botpress.cloud",
             "botName": "Pillenguru",
-            "containerWidth": "100%", /* Vollbreite für den Container */
-            "layoutWidth": "100%", /* Vollbreite für das Layout */
+            "containerWidth": "100%25",
+            "layoutWidth": "100%25",
             "hideWidget": true,
             "disableAnimations": true,
         });
