@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botpress Chatbot</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico"> <!-- Favicon hinzugefügt -->
     <style>
         /* CSS für mobile Optimierung */
         @media screen and (max-width: 767px) {
@@ -34,9 +34,8 @@
         }
 
         .loading-logo {
-            width: 200px; /* Originalgröße des Logos */
-            margin-bottom: -20px; /* Negativer unterer Rand, um den Ladekreis näher ans Logo zu bringen */
-            z-index: 10; /* Stellt sicher, dass das Logo über dem Ladekreis liegt */
+            width: 400px; /* Doppelte Größe des Logos */
+            margin-bottom: 1px;
         }
 
         .loader {
@@ -46,8 +45,6 @@
             width: 50px;
             height: 50px;
             animation: spin 2s linear infinite;
-            position: relative;
-            z-index: 1; /* Stellt sicher, dass der Ladekreis unter dem Logo liegt */
         }
 
         @keyframes spin {
@@ -66,9 +63,18 @@
     <!-- Import the Botpress WebChat JavaScript file -->
     <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
     
+    <!-- Initialize the Botpress WebChat with the required parameters -->
     <script>
         window.botpressWebChat.init({
-            /* Ihre Botpress-Initialisierungsparameter */
+            "botId": "0fddda55-253c-435b-9abe-788896a3bec2",
+            "clientId": "0fddda55-253c-435b-9abe-788896a3bec2",
+            "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
+            "messagingUrl": "https://messaging.botpress.cloud",
+            "botName": "Pillenguru",
+            "containerWidth": "100%25",
+            "layoutWidth": "100%25",
+            "hideWidget": true,
+            "disableAnimations": true,
         });
 
         window.botpressWebChat.onEvent(
