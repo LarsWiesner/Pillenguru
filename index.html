@@ -35,7 +35,7 @@
 
         .loading-logo {
             width: 200px; /* Doppelte Größe des Logos */
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Reduzierter Abstand zum Ladekreis */
         }
 
         .loader {
@@ -56,28 +56,18 @@
 <body>
     <!-- Ladebildschirm -->
     <div class="loading-screen">
-        <img src="Pillenguru(1).png" alt="Logo" class="loading-logo"> <!-- Pfad zu Ihrem Logo -->
+        <img src="Pillenguru(1).png" alt="Logo" class="loading-logo">
         <div class="loader"></div>
     </div>
 
     <!-- Import the Botpress WebChat JavaScript file -->
     <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
     
-    <!-- Initialize the Botpress WebChat with the required parameters -->
     <script>
         window.botpressWebChat.init({
-            "botId": "0fddda55-253c-435b-9abe-788896a3bec2",
-            "clientId": "0fddda55-253c-435b-9abe-788896a3bec2",
-            "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
-            "messagingUrl": "https://messaging.botpress.cloud",
-            "botName": "Pillenguru",
-            "containerWidth": "100%25",
-            "layoutWidth": "100%25",
-            "hideWidget": true,
-            "disableAnimations": true,
+            /* Ihre Botpress-Initialisierungsparameter */
         });
 
-        // Event-Handler für das Laden des Webchats
         window.botpressWebChat.onEvent(
             function () {
                 window.botpressWebChat.sendEvent({ type: "show" });
@@ -85,9 +75,13 @@
             ["LIFECYCLE.LOADED"]
         );
 
-        // JavaScript, um den Ladebildschirm nach 3 Sekunden zu entfernen
+        // JavaScript, um den Ladebildschirm nach genau 3 Sekunden schnell zu entfernen
         setTimeout(function() {
-            document.querySelector('.loading-screen').style.display = 'none';
+            var loadingScreen = document.querySelector('.loading-screen');
+            loadingScreen.style.opacity = '0'; // Beginne mit dem Ausblenden
+            setTimeout(function() {
+                loadingScreen.style.display = 'none'; // Entferne nach dem Ausblenden
+            }, 500); // Wartezeit für das Ausblenden, um sicherzustellen, dass es abgeschlossen ist
         }, 3000);
     </script>
 </body>
