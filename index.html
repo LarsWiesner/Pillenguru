@@ -8,12 +8,11 @@
     <style>
         /* CSS für mobile Optimierung */
         @media screen and (max-width: 767px) {
-            /* Spezifische Stile für mobile Geräte */
             .bp-widget .bpw-chat-container {
-                width: 100% !important; /* Vollbreite auf mobilen Geräten */
-                height: 100% !important; /* Volle Höhe */
+                width: 100% !important;
+                height: 100% !important;
                 border-radius: 0;
-                position: fixed; /* Fixiert das Chatfenster auf dem Bildschirm */
+                position: fixed;
                 bottom: 0;
                 left: 0;
             }
@@ -34,6 +33,11 @@
             z-index: 9999;
         }
 
+        .loading-logo {
+            width: 200px; /* Doppelte Größe des Logos */
+            margin-bottom: 20px;
+        }
+
         .loader {
             border: 5px solid #f3f3f3;
             border-top: 5px solid #3498db;
@@ -41,25 +45,18 @@
             width: 50px;
             height: 50px;
             animation: spin 2s linear infinite;
-            margin-bottom: 20px;
         }
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
-        .loading-logo {
-            width: 100px; /* Größe Ihres Logos */
-        }
     </style>
 </head>
 <body>
     <!-- Ladebildschirm -->
     <div class="loading-screen">
-        <div class="loading-logo">
-            <img src="Pillenguru(1).png" alt="Logo"> <!-- Pfad zu Ihrem Logo -->
-        </div>
+        <img src="Pillenguru(1).png" alt="Logo" class="loading-logo"> <!-- Pfad zu Ihrem Logo -->
         <div class="loader"></div>
     </div>
 
@@ -79,13 +76,10 @@
             ["LIFECYCLE.LOADED"]
         );
 
-        // JavaScript, um den Ladebildschirm zu entfernen, sobald die Seite geladen ist
-        window.addEventListener('load', function() {
-            var loadingScreen = document.querySelector('.loading-screen');
-            if(loadingScreen) {
-                loadingScreen.style.display = 'none';
-            }
-        });
+        // JavaScript, um den Ladebildschirm nach 3 Sekunden zu entfernen
+        setTimeout(function() {
+            document.querySelector('.loading-screen').style.display = 'none';
+        }, 3000);
     </script>
 </body>
 </html>
