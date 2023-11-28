@@ -66,9 +66,18 @@
     <!-- Initialize the Botpress WebChat with the required parameters -->
     <script>
         window.botpressWebChat.init({
-            /* Ihre Botpress-Initialisierung */
+            "botId": "0fddda55-253c-435b-9abe-788896a3bec2",
+            "clientId": "0fddda55-253c-435b-9abe-788896a3bec2",
+            "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
+            "messagingUrl": "https://messaging.botpress.cloud",
+            "botName": "Pillenguru",
+            "containerWidth": "100%25",
+            "layoutWidth": "100%25",
+            "hideWidget": true,
+            "disableAnimations": true,
         });
 
+        // Event-Handler für das Laden des Webchats
         window.botpressWebChat.onEvent(
             function () {
                 window.botpressWebChat.sendEvent({ type: "show" });
