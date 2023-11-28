@@ -4,91 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botpress Chatbot</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico"> <!-- Favicon hinzugefügt -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
-        /* CSS für mobile Optimierung */
-        @media screen and (max-width: 767px) {
-            .bp-widget .bpw-chat-container {
-                width: 100% !important;
-                height: 100% !important;
-                border-radius: 0;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-            }
-        }
-
-        /* Stil für den Ladebildschirm */
+        /* Ihre vorhandenen Stile */
         .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
+            /* Stile für den Ladebildschirm */
         }
 
         .loading-logo {
-            width: 350px; /* Doppelte Größe des Logos */
-            margin-bottom: 20px;
+            /* Stile für das Logo */
         }
 
         .loader {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 2s linear infinite;
+            /* Stile für den Ladekreis */
+            margin-top: 10px; /* Reduzierter Abstand zum Logo */
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        /* Weitere Stile */
     </style>
 </head>
 <body>
-    <!-- Ladebildschirm -->
     <div class="loading-screen">
-        <img src="Pillenguru(1).png" alt="Logo" class="loading-logo"> <!-- Pfad zu Ihrem Logo -->
+        <img src="Pillenguru(1).png" alt="Logo" class="loading-logo">
         <div class="loader"></div>
     </div>
 
     <!-- Import the Botpress WebChat JavaScript file -->
     <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
     
-    <!-- Initialize the Botpress WebChat with the required parameters -->
     <script>
-        window.botpressWebChat.init({
-            "botId": "0fddda55-253c-435b-9abe-788896a3bec2",
-            "clientId": "0fddda55-253c-435b-9abe-788896a3bec2",
-            "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
-            "messagingUrl": "https://messaging.botpress.cloud",
-            "botName": "Pillenguru",
-            "containerWidth": "100%25",
-            "layoutWidth": "100%25",
-            "hideWidget": true,
-            "disableAnimations": true,
-        });
+        // Funktion, um den Ladebildschirm auszublenden und Botpress zu initialisieren
+        function initializeBotpress() {
+            window.botpressWebChat.init({
+                // Ihre Botpress-Initialisierungsparameter
+            });
 
-        // Event-Handler für das Laden des Webchats
-        window.botpressWebChat.onEvent(
-            function () {
-                window.botpressWebChat.sendEvent({ type: "show" });
-            },
-            ["LIFECYCLE.LOADED"]
-        );
+            window.botpressWebChat.onEvent(
+                function () {
+                    window.botpressWebChat.sendEvent({ type: "show" });
+                },
+                ["LIFECYCLE.LOADED"]
+            );
+        }
 
-        // JavaScript, um den Ladebildschirm nach 3 Sekunden zu entfernen
+        // Ladebildschirm ausblenden und dann Botpress initialisieren
         setTimeout(function() {
-            document.querySelector('.loading-screen').style.display = 'none';
-        }, 3000);
+            var loadingScreen = document.querySelector('.loading-screen');
+            loadingScreen.style.opacity = '0'; // Schnelles Ausblenden
+            loadingScreen.addEventListener('transitionend', function() {
+                loadingScreen.style.display = 'none';
+                initializeBotpress(); // Botpress initialisieren
+            });
+        }, 3000); // 3 Sekunden warten
+
+        // CSS-Übergang für das schnelle Ausblenden hinzufügen
+        document.querySelector('.loading-screen').style.transition = 'opacity 0.5s ease';
     </script>
 </body>
 </html>
